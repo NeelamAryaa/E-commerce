@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import AppBar from "@material-ui/core/AppBar";
 import MenuBookRoundedIcon from "@material-ui/icons/MenuBookRounded";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
@@ -6,14 +6,13 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Badge from "@material-ui/core/Badge";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
-import { makeStyles, withStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 import CartItems from "./cart-item";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import { ToggleCart } from "../redux/cart/cart.actions";
 
-const Header = ({ counter }) => {
-  const [isToggle, setToggle] = useState(false);
-
+const Header = ({ counter, toggleCart, toggle }) => {
   const useStyles = makeStyles((theme) => ({
     icon: {
       textDecoration: "none",
@@ -26,15 +25,6 @@ const Header = ({ counter }) => {
       color: "white",
     },
   }));
-
-  // const StyledBadge = withStyles((theme) => ({
-  //   badge: {
-  //     right: -3,
-  //     top: 13,
-  //     border: `2px solid ${theme.palette.background.paper}`,
-  //     padding: "0 4px",
-  //   },
-  // }))(Badge);
 
   const classes = useStyles();
 
@@ -49,17 +39,22 @@ const Header = ({ counter }) => {
         </Typography>
         <IconButton className={classes.carticon} aria-label="cart">
           <Badge badgeContent={counter} color="secondary">
-            <ShoppingCartIcon onClick={() => setToggle(!isToggle)} />
+            <ShoppingCartIcon onClick={toggleCart} />
           </Badge>
         </IconButton>
-        {isToggle ? <CartItems /> : null}
+        {toggle ? <CartItems /> : null}
       </Toolbar>
     </AppBar>
   );
 };
 
 const mapStateToProps = (state) => ({
-  counter: state.count.count,
+  counter: state.cart.counter,
+  toggle: state.cart.toggle,
 });
 
-export default connect(mapStateToProps)(Header);
+const mapDispatchToProps = (dispatch) => ({
+  toggleCart: () => dispatch(ToggleCart()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

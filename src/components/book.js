@@ -10,8 +10,7 @@ import Grid from "@material-ui/core/Grid";
 import { Shop_Data } from "../shop.data/shop.data";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
-import { AddCartItem } from "../redux/cart/cart.actions";
-import { Counter } from "../redux/counter/counter.actions";
+import { IncreaseItemQuantity } from "../redux/cart/cart.actions";
 
 const useStyles = makeStyles((theme) => ({
   card: {
@@ -26,24 +25,28 @@ const useStyles = makeStyles((theme) => ({
   cardContent: {
     flexGrow: 1,
   },
+  bookcontainer: {
+    width: "100%",
+    margin: 0,
+    marginBottom: "50px",
+  },
 }));
 
-const Book = ({ addData, counter }) => {
+const Book = ({ addItemToCart }) => {
   const classes = useStyles();
 
   const onClickHandler = (book) => {
-    counter();
-    addData(book);
+    addItemToCart(book);
   };
 
   return (
-    <Grid container spacing={4}>
+    <Grid container spacing={4} className={classes.bookcontainer}>
       {Shop_Data.map((book) => (
         <Grid item key={book.id} xs={12} sm={6} md={4} lg={3}>
           <Card className={classes.card}>
             <CardMedia
               style={{
-                background: `grey url(${book.url}) center no-repeat `,
+                background: `#eee url(${book.url}) center no-repeat `,
                 backgroundSize: "contain",
               }}
               className={classes.cardMedia}
@@ -77,8 +80,7 @@ const Book = ({ addData, counter }) => {
 };
 
 const mapDipatchToProps = (dispatch) => ({
-  addData: (book) => dispatch(AddCartItem(book)),
-  counter: () => dispatch(Counter()),
+  addItemToCart: (book) => dispatch(IncreaseItemQuantity(book)),
 });
 
 export default connect(null, mapDipatchToProps)(Book);

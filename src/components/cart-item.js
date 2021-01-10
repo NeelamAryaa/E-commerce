@@ -7,6 +7,7 @@ import CardActions from "@material-ui/core/CardActions";
 import Box from "@material-ui/core/Box";
 import Avatar from "@material-ui/core/Avatar";
 import { Link } from "react-router-dom";
+import { ToggleCart } from "../redux/cart/cart.actions";
 
 const useStyles = makeStyles({
   root: {
@@ -80,7 +81,7 @@ const useStyles = makeStyles({
   },
 });
 
-const CartItems = ({ book }) => {
+const CartItems = ({ book, toggleCart }) => {
   const classes = useStyles();
 
   return (
@@ -104,7 +105,9 @@ const CartItems = ({ book }) => {
                   />
                   <Box className={classes.name} display="inline">
                     <Box display="block">{obj.name}</Box>
-                    <Box display="block">1 X {"Rs. " + obj.price}</Box>
+                    <Box display="block">
+                      {obj.quantity} X {"Rs. " + obj.price}
+                    </Box>
                   </Box>
                 </Box>
               ))
@@ -117,6 +120,7 @@ const CartItems = ({ book }) => {
           variant="contained"
           color="secondary"
           className={classes.btn}
+          onClick={toggleCart}
         >
           Checkout
         </Link>
@@ -129,4 +133,8 @@ const mapStateToProps = (state) => ({
   book: state.cart.data,
 });
 
-export default connect(mapStateToProps)(CartItems);
+const mapDispatchToProps = (dispatch) => ({
+  toggleCart: () => dispatch(ToggleCart()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(CartItems);

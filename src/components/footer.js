@@ -6,11 +6,12 @@ import Typography from "@material-ui/core/Typography";
 const Footer = () => {
   const useStyles = makeStyles((theme) => ({
     footer: {
-      // position: "absolute",
-      // bottom: "1px",
-      // width: "100vw",
+      position: "absolute",
+      bottom: "-70px",
+      width: "100%",
+      height: "2.5rem",
       backgroundColor: theme.palette.background.paper,
-      padding: theme.spacing(6),
+      paddingBottom: theme.spacing(4),
     },
   }));
 

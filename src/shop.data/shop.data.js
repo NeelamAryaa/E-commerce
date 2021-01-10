@@ -1,7 +1,7 @@
 export const Shop_Data = [
   {
     id: 1,
-    name: "Book1",
+    name: "One Chance",
     about:
       "When I have a little money, I buy books; and if I have any left, I buy food and clothes.",
     price: 150,
@@ -9,7 +9,7 @@ export const Shop_Data = [
   },
   {
     id: 2,
-    name: "Book2",
+    name: "Search For Meaning",
     about:
       "That’s the thing about books. They let you travel without moving your feet.",
     price: 760,
@@ -17,7 +17,7 @@ export const Shop_Data = [
   },
   {
     id: 3,
-    name: "Book3",
+    name: "How Successful People Think",
     about:
       "If you only read the books that everyone else is reading, you can only think what everyone else is thinking.",
     price: 630,
@@ -25,14 +25,14 @@ export const Shop_Data = [
   },
   {
     id: 4,
-    name: "Book4",
+    name: "Rich Dad Poor Dad",
     about: "Books are a uniquely portable magic.",
     price: 870,
-    url: "../assets/4.jpg",
+    url: "../assets/rich.jpg",
   },
   {
     id: 5,
-    name: "Book5",
+    name: "Mindset Secrets",
     about:
       "A book is a version of the world. If you do not like it, ignore it; or offer your own version in return.",
     price: 500,
@@ -40,7 +40,7 @@ export const Shop_Data = [
   },
   {
     id: 6,
-    name: "Book6",
+    name: "You Can Win",
     about:
       "Books are mirrors: you only see in them what you already have inside you.",
     price: 340,
@@ -48,43 +48,43 @@ export const Shop_Data = [
   },
   {
     id: 7,
-    name: "Book7",
+    name: "Think And Grow Rich",
     about: "I love the smell of book ink in the morning.",
     price: 290,
     url: "../assets/7.jpg",
   },
   {
     id: 8,
-    name: "Book8",
+    name: "Ego Is The Enemy",
     about: "Books were my pass to personal freedom.",
     price: 100,
     url: "../assets/8.jpg",
   },
   {
     id: 9,
-    name: "Book9",
+    name: "Chanakya Neeti",
     about:
       "If there is a book that you want to read, but it hasn’t been written yet, you must be the one to write it.",
     price: 710,
-    url: "../assets/9.jpg",
+    url: "../assets/ch.jpg",
   },
   {
     id: 10,
-    name: "Book10",
+    name: "APJ Abdul Kalam",
     about: "A first book has some of the sweetness of a first love.",
     price: 900,
     url: "../assets/10.jpg",
   },
   {
     id: 11,
-    name: "Book11",
+    name: "The Magic Of Thinking Big",
     about: "Books always make a room better.",
     price: 450,
     url: "../assets/11.jpg",
   },
   {
     id: 12,
-    name: "Book12",
+    name: "The Power Of Now",
     about: "A room without books is like a body without a soul.",
     price: 260,
     url: "../assets/12.jpg",
