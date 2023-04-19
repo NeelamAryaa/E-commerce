@@ -50,7 +50,7 @@ const BookItems = () => {
           </Typography>
         </Container>
       </div>
-      <Container className={classes.cardGrid} maxWidth="md">
+      <Container className={classes.cardGrid} maxWidth="lg">
         <Book />
       </Container>
     </main>
